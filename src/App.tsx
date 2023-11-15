@@ -158,10 +158,12 @@ function App() {
   // 0-9 까지 숫자만 입력 가능
   const blindNumber = (e: React.ChangeEvent<HTMLInputElement>) =>{
     const value = e.target.value;
-    if(isBtn === 1){
-      e.target.value = e.target.value.replace(/[^0-9]/g,'')
+    const result = carriers.find((e) => e.Code === tcode)
+    if(result){
+      if(result.International === 'false'){
+        e.target.value = e.target.value.replace(/[^0-9]/g,'')
+      }
     }
-    e.target.value = e.target.value.replace(/[^0-9]/g,'')
     setTinvoice(value);
     }
 
